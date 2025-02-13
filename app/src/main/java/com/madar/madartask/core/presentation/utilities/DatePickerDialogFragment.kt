@@ -1,120 +1,104 @@
-package com.madar.madartask.core.presentation.utilities;
+package com.madar.madartask.core.presentation.utilities
 
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.ContextThemeWrapper;
-import android.widget.DatePicker;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.Calendar;
+import android.app.AlertDialog
+import android.app.DatePickerDialog
+import android.app.DatePickerDialog.OnDateSetListener
+import android.app.Dialog
+import android.app.DialogFragment
+import android.content.Context
+import android.os.Build
+import android.os.Bundle
+import android.view.ContextThemeWrapper
+import android.widget.DatePicker
+import java.util.Calendar
 
-public class DatePickerDialogFragment extends DialogFragment {
-
-    private DatePickerDialog.OnDateSetListener listener = null;
-    Calendar cal = Calendar.getInstance();
-
-
-    public void setListener(DatePickerDialog.OnDateSetListener listener) {
-        this.listener = listener;
+class DatePickerDialogFragment : DialogFragment() {
+    private var listener: OnDateSetListener? = null
+    var cal = Calendar.getInstance()
+    fun setListener(listener: OnDateSetListener?) {
+        this.listener = listener
     }
 
-    private static final String START_IN_YEARS = "com.myapp.picker.START_IN_YEARS";
-    private static final String YEAR = "com.myapp.picker.YEAR";
-    private static final String MONTH = "com.myapp.picker.MONTH";
-    private static final String DAY_OF_MONTH = "com.myapp.picker.DAY_OF_MONTH";
-
-    public static DatePickerDialogFragment newInstance(boolean startInYears, Calendar c) {
-        DatePickerDialogFragment f = new DatePickerDialogFragment();
-
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DAY_OF_MONTH);
-
-        Bundle args = new Bundle();
-        args.putBoolean(START_IN_YEARS, startInYears);
-        args.putInt(YEAR, year);
-        args.putInt(MONTH, month);
-        args.putInt(DAY_OF_MONTH, day);
-
-        f.setArguments(args);
-        return f;
-    }
-
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-
-        Bundle args = getArguments();
-        DatePickerDialog dpd = null;
-
-        if( listener != null && args != null) {
-            boolean startInYears = args.getBoolean(START_IN_YEARS);
-
-            Context context = getActivity();
-            boolean requireSpinnerMode = isBrokenSamsungDevice();
+    override fun onCreateDialog(savedInstanceState: Bundle): Dialog {
+        val args = arguments
+        var dpd: DatePickerDialog? = null
+        if (listener != null && args != null) {
+            val startInYears = args.getBoolean(START_IN_YEARS)
+            var context: Context? = activity
+            val requireSpinnerMode = isBrokenSamsungDevice
             if (requireSpinnerMode) {
-                context = new ContextThemeWrapper(context, AlertDialog.THEME_HOLO_LIGHT);
+                context = ContextThemeWrapper(context, AlertDialog.THEME_HOLO_LIGHT)
             }
-
-            int year = args.getInt(YEAR);
-            int month = args.getInt(MONTH);
-            int day = args.getInt(DAY_OF_MONTH);
-
-            dpd = new DatePickerDialog(context, listener, year, month, day);
-//            dpd.getDatePicker().setMinDate(System.currentTimeMillis()+24*60*60*1000);
+            val year = args.getInt(YEAR)
+            val month = args.getInt(MONTH)
+            val day = args.getInt(DAY_OF_MONTH)
+            dpd = DatePickerDialog(context!!, listener, year, month, day)
+            //            dpd.getDatePicker().setMinDate(System.currentTimeMillis()+24*60*60*1000);
 //            dpd.getDatePicker().setMinDate(cal.getTimeInMillis());
-
-
             if (startInYears && !requireSpinnerMode) {
-                boolean canOpenYearView = openYearView(dpd.getDatePicker());
+                val canOpenYearView = openYearView(dpd.datePicker)
                 if (!canOpenYearView) {
-                    context = new ContextThemeWrapper(getActivity(),AlertDialog.THEME_HOLO_LIGHT);
-                    dpd = new DatePickerDialog(context, listener, year, month, day);
-//                    dpd.getDatePicker().setMinDate(System.currentTimeMillis()+24*60*60*1000);
+                    context = ContextThemeWrapper(activity, AlertDialog.THEME_HOLO_LIGHT)
+                    dpd = DatePickerDialog(context, listener, year, month, day)
+                    //                    dpd.getDatePicker().setMinDate(System.currentTimeMillis()+24*60*60*1000);
 //                    dpd.getDatePicker().setMinDate(cal.getTimeInMillis());
-
-
                 }
             }
+        } else {
+            showsDialog = false
+            dismissAllowingStateLoss()
         }
-        else {
-            setShowsDialog(false);
-            dismissAllowingStateLoss();
-        }
-
-        return dpd;
+        return dpd!!
     }
 
-    private static boolean isBrokenSamsungDevice() {
-        return Build.MANUFACTURER.equalsIgnoreCase("samsung") &&
-                isBetweenAndroidVersions(
+    companion object {
+        private const val START_IN_YEARS = "com.myapp.picker.START_IN_YEARS"
+        private const val YEAR = "com.myapp.picker.YEAR"
+        private const val MONTH = "com.myapp.picker.MONTH"
+        private const val DAY_OF_MONTH = "com.myapp.picker.DAY_OF_MONTH"
+        fun newInstance(startInYears: Boolean, c: Calendar): DatePickerDialogFragment {
+            val f = DatePickerDialogFragment()
+            val year = c[Calendar.YEAR]
+            val month = c[Calendar.MONTH]
+            val day = c[Calendar.DAY_OF_MONTH]
+            val args = Bundle()
+            args.putBoolean(START_IN_YEARS, startInYears)
+            args.putInt(YEAR, year)
+            args.putInt(MONTH, month)
+            args.putInt(DAY_OF_MONTH, day)
+            f.arguments = args
+            return f
+        }
+
+        private val isBrokenSamsungDevice: Boolean
+            private get() = Build.MANUFACTURER.equals("samsung", ignoreCase = true) &&
+                    isBetweenAndroidVersions(
                         Build.VERSION_CODES.LOLLIPOP,
-                        Build.VERSION_CODES.LOLLIPOP_MR1);
-    }
+                        Build.VERSION_CODES.LOLLIPOP_MR1
+                    )
 
-    private static boolean isBetweenAndroidVersions(int min, int max) {
-        return Build.VERSION.SDK_INT >= min && Build.VERSION.SDK_INT <= max;
-    }
-
-    private static boolean openYearView(DatePicker datePicker) {
-        if( isBrokenSamsungDevice() ) {
-            return false;
+        private fun isBetweenAndroidVersions(min: Int, max: Int): Boolean {
+            return Build.VERSION.SDK_INT >= min && Build.VERSION.SDK_INT <= max
         }
-        try {
-            Field mDelegateField = datePicker.getClass().getDeclaredField("mDelegate");
-            mDelegateField.setAccessible(true);
-            Object delegate = mDelegateField.get(datePicker);
-            Method setCurrentViewMethod = delegate.getClass().getDeclaredMethod("setCurrentView", int.class);
-            setCurrentViewMethod.setAccessible(true);
-            setCurrentViewMethod.invoke(delegate, 1);
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
-    }
 
+        private fun openYearView(datePicker: DatePicker): Boolean {
+            if (isBrokenSamsungDevice) {
+                return false
+            }
+            try {
+                val mDelegateField = datePicker.javaClass.getDeclaredField("mDelegate")
+                mDelegateField.isAccessible = true
+                val delegate = mDelegateField[datePicker]
+                val setCurrentViewMethod = delegate.javaClass.getDeclaredMethod(
+                    "setCurrentView",
+                    Int::class.javaPrimitiveType
+                )
+                setCurrentViewMethod.isAccessible = true
+                setCurrentViewMethod.invoke(delegate, 1)
+            } catch (e: Exception) {
+                return false
+            }
+            return true
+        }
+    }
 }
