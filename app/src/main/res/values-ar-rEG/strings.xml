@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Madar</string>
+    <string name="check_internet_connections">تحقق من الاتصال بالإنترنت!</string>
+    <string name="storage_permissions_title">صلاحيات التخزين</string>
+    <string name="storage_permissions_message">عذرًا، للمتابعة، تحتاج إلى السماح للتطبيق بالوصول إلى التخزين الخارجي.</string>
+    <string name="location_permissions_title">صلاحيات الموقع</string>
+    <string name="location_permissions_message">عذرًا، للمتابعة، تحتاج إلى السماح للتطبيق بالوصول إلى موقعك.</string>
+    <string name="allow">السماح</string>
+    <string name="cancel">إلغاء</string>
+    <string name="ok">حسنًا</string>
+    <string name="no">لا</string>
+    <string name="yes">نعم</string>
+    <string name="rotate">0</string>
+    <string name="do_you_need_to_close_app">هل ترغب في الخروج من التطبيق؟</string>
+    <string name="close">خروج</string>
+    <string name="close_">خروج</string>
+    <string name="full_name_">الاسم كاملا</string>
+    <string name="enter_your_full_name">أدخل اسمك كاملا</string>
+    <string name="please_enter_full_name">الرجاء إدخال الاسم كاملا</string>
+    <string name="age">العمر</string>
+    <string name="enter_your_age">أدخل عمرك</string>
+    <string name="please_enter_your_age">الرجاء إدخال العمر</string>
+    <string name="collect_data">جمع البيانات</string>
+    <string name="job_title">المسمي الوظيفي</string>
+    <string name="enter_your_job_title">ادخل المسمي الوظيفي</string>
+    <string name="please_enter_your_job_title">الرجاء إدخال المسمي الوظيفي</string>
+    <string name="male">ذكر</string>
+    <string name="female">أنثي</string>
+    <string name="gender">النوع</string>
+    <string name="profile">الصفحه الشخصيه</string>
+    <string name="delete_account">حذف الحساب</string>
+    <string name="change_language">تغيير اللغه</string>
+    <string name="log_out">تسجيل خروج</string>
+    <string name="the_account_will_be_deleted_after_45_days_from_now">سوف يتم حذف الحساب بعد 45 يوم من الان</string>
+    <string name="delete">حذف</string>
+    <string name="your_account_deletion_request_has_been_submitted_successfully">تم تقديم طلب حذف الحساب بنجاح</string>
+    <string name="do_you_need_to_logout">هل تريد تسجيل الخروج؟</string>
+    <string name="english">الانجليزيه</string>
+    <string name="arabic">العربيه</string>
+    <string name="edit_data">تعديل البيانات</string>
+    <string name="now_you_enabled_views_and_can_edit_your_data">لقد قمت الآن بتفعيل المدخلات ويمكنك تعديل بياناتك</string>
+    <string name="edited_success">تم تعديل البيانات بنجاح</string>
+</resources>

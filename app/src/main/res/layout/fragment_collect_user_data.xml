@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    tools:context=".madarTask.presentation.view.collectUserData.FragmentCollectUserData">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ScrollViewCount">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutCollectUserData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_25"
+            android:layout_marginVertical="@dimen/dp_25">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tajawal_bold"
+                android:text="@string/full_name_"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edFullName"
+                style="@style/edittext_background"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_10"
+                android:hint="@string/enter_your_full_name"
+                android:inputType="textPersonName"
+                app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvErrorFullName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tajawal_regular"
+                android:text="@string/please_enter_full_name"
+                android:textColor="@color/Error_700"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edFullName" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_15"
+                android:fontFamily="@font/tajawal_bold"
+                android:text="@string/age"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvErrorFullName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edAge"
+                style="@style/edittext_background"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_10"
+                android:hint="@string/enter_your_age"
+                android:inputType="number"
+                app:layout_constraintTop_toBottomOf="@+id/tvAge" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvErrorAge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tajawal_regular"
+                android:text="@string/please_enter_your_age"
+                android:textColor="@color/Error_700"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edAge" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvJobTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_15"
+                android:fontFamily="@font/tajawal_bold"
+                android:text="@string/job_title"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvErrorAge" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edJobTitle"
+                style="@style/edittext_background"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_10"
+                android:hint="@string/enter_your_job_title"
+                android:inputType="text"
+                app:layout_constraintTop_toBottomOf="@+id/tvJobTitle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvErrorJobTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tajawal_regular"
+                android:text="@string/please_enter_your_job_title"
+                android:textColor="@color/Error_700"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edJobTitle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_15"
+                android:fontFamily="@font/tajawal_bold"
+                android:text="@string/gender"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvErrorJobTitle" />
+
+            <LinearLayout
+                android:id="@+id/layoutMale"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="13dp"
+                android:background="@drawable/drawable_border_edittext_main_color"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@+id/layoutFeMale"
+                app:layout_constraintStart_toStartOf="@+id/edJobTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvType">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/dp_7"
+                    android:layout_marginStart="@dimen/dp_25"
+                    android:src="@drawable/ic_male" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_25"
+                    android:fontFamily="@font/tajawal_regular"
+                    android:text="@string/male"
+                    android:textColor="@color/color_gray"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFeMale"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/drawable_corner_edittext_main_color"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/edJobTitle"
+                app:layout_constraintStart_toEndOf="@+id/layoutMale"
+                app:layout_constraintTop_toBottomOf="@+id/tvType">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/dp_7"
+                    android:layout_marginStart="@dimen/dp_25"
+                    android:src="@drawable/ic_female" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFeMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:fontFamily="@font/tajawal_regular"
+                    android:text="@string/female"
+                    android:textColor="@color/color_gray"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCollectData"
+                style="@style/button_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_50"
+                android:background="@drawable/drawable_gradient_app_colors"
+                android:text="@string/collect_data"
+                app:layout_constraintTop_toBottomOf="@+id/layoutMale" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

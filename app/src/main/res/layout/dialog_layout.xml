@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_margin="5dp"
+    android:minWidth="300dp"
+    android:background="@color/white"
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardBackgroundColor="@color/white"
+    android:id="@+id/card">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/color_gray"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Title"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_message_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialog_title_textview"
+            android:layout_marginTop="16sp"
+            android:textColor="@color/color_gray"
+            android:textSize="12sp"
+            tools:text="Message"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_positive_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialog_message_textview"
+            android:layout_marginTop="25dp"
+            android:textSize="12sp"
+            tools:text="PositiveAction"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_negative_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/dialog_positive_button"
+            app:layout_constraintTop_toBottomOf="@id/dialog_message_textview"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="12sp"
+            tools:text="NegativeAction"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

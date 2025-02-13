@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listview_background_shape">
+    <stroke
+        android:width="0dp"
+        android:color="@color/color_main" />
+    <padding
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp" />
+    <corners
+        android:bottomLeftRadius="@dimen/dp_10"
+        android:bottomRightRadius="@dimen/dp_10"
+        android:topLeftRadius="@dimen/dp_10"
+        android:topRightRadius="@dimen/dp_10" />
+
+    <gradient
+        android:angle="45"
+        android:centerColor="@color/color_main"
+        android:endColor="@color/color_secondary"
+        android:startColor="@color/color_main" />
+
+</shape>
